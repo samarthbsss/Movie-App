@@ -14,10 +14,10 @@ const moviesURL = import.meta.env.VITE_API
 const apiKey = import.meta.env.VITE_API_KEY
 
 export const Movie = () => {
-  const {id} =useParams()
+  const { id } = useParams()
   const [movie, setMovie] = useState(null)
 
-  const getMovie = async(url) => {
+  const getMovie = async (url) => {
     const response = await fetch(url)
     const data = await response.json()
 
@@ -26,7 +26,7 @@ export const Movie = () => {
 
   function formatCurrency(number) {
     return number.toLocaleString('en-US', {
-      style:'currency',
+      style: 'currency',
       currency: 'USD'
     })
   }
@@ -39,41 +39,41 @@ export const Movie = () => {
   return <div className="movie_page">
     {movie && (
       <>
-      <MovieCard movie={movie} showLink={false} />
-      <p className="tag">{movie.tagline}</p>
-      <div className="info">
-        <h3>
-          <BsWallet2 /> 
-Budget:
-        </h3>
-        <p>
-          {formatCurrency(movie.budget)}
-        </p>
-      </div>
-      <div className="info">
-        <h3>
-          <BsGraphUp /> Revenue:
-        </h3>
-        <p>
-          {formatCurrency(movie.revenue)}
-        </p>
-      </div>
-      <div className="info">
-        <h3>
-          <BsHourglassSplit /> Duration:
-        </h3>
-        <p>
-          {movie.runtime} minutes
-        </p>
-      </div>
-      <div className="info description">
-        <h3>
-          <BsFillFileEarmarkTextFill /> Desc:
-        </h3>
-        <p>
-          {movie.overview}
-        </p>
-      </div>
+        <MovieCard movie={movie} showLink={false} />
+        <p className="tag">{movie.tagline}</p>
+        <div className="info">
+          <h3>
+            <BsWallet2 />
+            Budget:
+          </h3>
+          <p>
+            {formatCurrency(movie.budget)}
+          </p>
+        </div>
+        <div className="info">
+          <h3>
+            <BsGraphUp /> Revenue:
+          </h3>
+          <p>
+            {formatCurrency(movie.revenue)}
+          </p>
+        </div>
+        <div className="info">
+          <h3>
+            <BsHourglassSplit /> Duration:
+          </h3>
+          <p>
+            {movie.runtime} minutes
+          </p>
+        </div>
+        <div className="info description">
+          <h3>
+            <BsFillFileEarmarkTextFill /> Desc:
+          </h3>
+          <p>
+            {movie.overview}
+          </p>
+        </div>
       </>
     )}
   </div>

@@ -30,8 +30,9 @@ export const Search = () => {
 
   const search = async () => {
     try {
-      const response = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&apikey=YOUR_OMDB_API_KEY`);
+      const response = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&apikey=3edad08d`);
       if (response.data.Search) {
+        console.log(response);
         setMovies(response.data.Search);
       }
     } catch (error) {
@@ -45,7 +46,7 @@ export const Search = () => {
       <h2 className="title">Results for: <span className="query_text">{query}</span></h2>
       <div className="movies_container">
         {movies.length === 0 && <p>Loading...</p>}
-        {movies.length > 0 && movies.map((movie)=>(
+        {movies.length > 0 && movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>

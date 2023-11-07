@@ -25,7 +25,7 @@ export const Home = () => {
     <div className="container">
       <div className="movies_container">
         {topMovies.length === 0 && <p>Loading please wait...</p>}
-        {topMovies.length > 0 && topMovies.map((movie)=>(
+        {topMovies.length > 0 && topMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
